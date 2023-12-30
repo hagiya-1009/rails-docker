@@ -9,8 +9,10 @@ RUN apt-get update -qq && apt-get install -y \
 
 WORKDIR /rails-docker
 
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile Gemfile.lock entrypoint.sh ./
 
 RUN bundle install
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

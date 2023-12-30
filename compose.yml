@@ -3,7 +3,28 @@ services:
     build: .
     ports:
       - 3000:3000
+    networks:
+      - myapp-network
     volumes:
       - .:/rails-docker
+    environment:
+      - DATABASE_PASSWORD=postgres
     tty: true
     stdin_open: true
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - myapp-network
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+networks:
+  myapp-network:
+
+volumes:
+  db-data:
