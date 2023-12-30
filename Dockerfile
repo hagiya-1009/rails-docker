@@ -11,7 +11,7 @@ WORKDIR /rails-docker
 
 COPY Gemfile Gemfile.lock entrypoint.sh ./
 
-RUN bundle install
+RUN bundle install && chmod u+x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
 
