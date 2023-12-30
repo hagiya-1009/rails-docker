@@ -1,24 +1,23 @@
-# README
+### 概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails アプリを Docker 化します。
 
-Things you may want to cover:
+### 環境構築方法
 
-* Ruby version
+#### 1. このリポジトリを clone する
 
-* System dependencies
+```
+git clone https://github.com/hagiya-1009/rails-docker
+```
 
-* Configuration
+#### 2. イメージの作成とコンテナの起動
 
-* Database creation
+```
+docker-compose up --build
+```
 
-* Database initialization
+#### 3. ブラウザからアクセス
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+http://localhost:3000/
+```
